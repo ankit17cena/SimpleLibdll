@@ -80,8 +80,11 @@ const char* addStrings(std::string a, std::string b) {
 
 	char* ans = new char[result.size() + 1];
 	strcpy_s(ans,result.size()+1, result.c_str());
-	return ans;
+
+	char* copy = new char[result.size() + 1];
+	strcpy_s(copy, result.size() + 1, ans);
 	free1(ans);
+	return copy;
 }
 
 

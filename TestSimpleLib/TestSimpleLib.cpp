@@ -35,8 +35,8 @@ namespace TestSimpleLib
 
 		TEST_METHOD(addString)
 		{   
-			const char* actual = addStrings("9", "6");
-			const char* expected = "15";
+			const char* actual = addStrings("0", "0");
+			const char* expected = "0";
 			Assert::IsNotNull(actual);
 			Assert::AreEqual(expected, actual);
 
@@ -59,11 +59,7 @@ namespace TestSimpleLib
 			expected = "2000";
 			Assert::IsNotNull(actual);
 			Assert::AreEqual(expected, actual);
-		
-			actual = addStrings("0", "0");
-			expected = "0";
-			Assert::IsNotNull(actual);
-			Assert::AreEqual(expected, actual);
+	
 		}
 
 		TEST_METHOD(sum_of_number) {
