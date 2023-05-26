@@ -54,31 +54,45 @@ bool areBracketsBalanced(const std::string& s) {
 	return stack.empty();
 }
 
-std::string addStrings(std::string &a, std::string &b) {
-	int n = (int)a.size(), m = (int)b.size();
-	if (n < m) {
-		std::swap(a, b);
-		std::swap(n, m);
-	}
-
+const char* addStrings(const char* a, const char* b) {
+	int i = (int)std::strlen(a) - 1;
+	int j = (int)std::strlen(b) - 1;
 	int carry = 0;
 	std::string result = "";
-	for (int i = 0; i < n; i++) {
-		int digit_a = a[n - i - 1] - '0';
-		int digit_b = i < m ? b[m - i - 1] - '0' : 0;
 
-		int sum = digit_a + digit_b + carry;
+	while (i >= 0 || j >= 0 || carry != 0) {
+		int sum = carry;
+		if (i >= 0) {
+			sum += a[i] - '0';
+			i--;
+		}
+		if (j >= 0) {
+			sum += b[j] - '0';
+			j--;
+		}
 		carry = sum / 10;
-		result.push_back(sum % 10 + '0');
-	}
-
-	if (carry != 0) {
-		result.push_back(carry + '0');
+		result += std::to_string(sum % 10);
 	}
 
 	std::reverse(result.begin(), result.end());
-	return result;
+
+	const char* cResult = nullptr;
+	char* buffer = nullptr;
+	size_t length = result.length();
+
+	buffer = static_cast<char*>(std::malloc((length + 1) * sizeof(char)));
+	if (buffer != nullptr) {
+		for (size_t i = 0; i < length; i++) {
+			buffer[i] = result[i];
+		}
+		buffer[length] = '\0';  
+		cResult = buffer;
+	}
+
+	return cResult;
 }
+
+
 
 int sum_of_numbers(const std::string& s) {
 	int sum = 0, current_number = 0;

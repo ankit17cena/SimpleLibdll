@@ -35,26 +35,36 @@ namespace TestSimpleLib
 
 		TEST_METHOD(addString)
 		{   
-			std::string x = "0", y = "0";
-			std::string a = addStrings(x,y);
-			std::string exp = "0";
+			const char* x = "123";
+			const char* y = "456";
+			const char* exp = "579";
+			const char* a= addStrings(x, y);
 			Assert::AreEqual(exp, a);
-			x = "0", y = "1234";
-			std::string b = addStrings(x,y);
+
+			x = "0";
+			y = "0";
+			exp = "0";
+			a= addStrings(x, y);
+			Assert::AreEqual(exp, a);
+
+			x = "0";
+			y = "1234";
 			exp = "1234";
-			Assert::AreEqual(exp, b);
-			x = "456", y = "0";
-			std::string c = addStrings(x,y);
+			a = addStrings(x, y);
+			Assert::AreEqual(exp, a);
+
+			x = "456";
+			y = "0";
 			exp = "456";
-			Assert::AreEqual(exp, c);
-			x = "123", y = "456";
-			std::string d = addStrings(x,y);
-			exp = "579";
-			Assert::AreEqual(exp, d);
-			x = "1001", y = "999";
-			std::string e = addStrings(x,y);
+			a = addStrings(x, y);
+			Assert::AreEqual(exp, a);
+
+			x = "1001";
+			y = "999";
 			exp = "2000";
-			Assert::AreEqual(exp, e);
+			a = addStrings(x, y);
+			Assert::AreEqual(exp, a);
+
 		}
 
 		TEST_METHOD(sum_of_number) {
