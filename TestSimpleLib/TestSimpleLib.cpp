@@ -35,35 +35,31 @@ namespace TestSimpleLib
 
 		TEST_METHOD(addString)
 		{   
-			const char* x = "123";
-			const char* y = "456";
-			const char* exp = "579";
-			const char* a= addStrings(x, y);
-			Assert::AreEqual(exp, a);
+			const char* actual = addStrings("9", "6");
+			const char* expected = "15";
+			Assert::IsNotNull(actual);
+			Assert::AreEqual(expected, actual);
 
-			x = "0";
-			y = "0";
-			exp = "0";
-			a= addStrings(x, y);
-			Assert::AreEqual(exp, a);
+			actual = addStrings("123", "456");
+			expected = "579";
+			Assert::IsNotNull(actual);
+			Assert::AreEqual(expected, actual);
 
-			x = "0";
-			y = "1234";
-			exp = "1234";
-			a = addStrings(x, y);
-			Assert::AreEqual(exp, a);
+			actual = addStrings("0", "1234");
+			expected = "1234";
+			Assert::IsNotNull(actual);
+			Assert::AreEqual(expected, actual);
 
-			x = "456";
-			y = "0";
-			exp = "456";
-			a = addStrings(x, y);
-			Assert::AreEqual(exp, a);
+			actual = addStrings("456", "0");
+			expected = "456";
+			Assert::IsNotNull(actual);
+			Assert::AreEqual(expected, actual);
 
-			x = "1001";
-			y = "999";
-			exp = "2000";
-			a = addStrings(x, y);
-			Assert::AreEqual(exp, a);
+			actual = addStrings("1001", "999");
+			expected = "2000";
+			Assert::IsNotNull(actual);
+			Assert::AreEqual(expected, actual);
+		
 
 		}
 

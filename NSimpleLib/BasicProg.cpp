@@ -54,10 +54,12 @@ bool areBracketsBalanced(const std::string& s) {
 	return stack.empty();
 }
 
-const char* addStrings(const char* a, const char* b) {
-	int i = (int)std::strlen(a) - 1;
-	int j = (int)std::strlen(b) - 1;
-	int carry = 0;
+void free1(const char* str) {
+	delete[] str;
+}
+
+const char* addStrings(std::string a, std::string b) {
+	int i = (int)a.length() - 1, j = (int)b.length() - 1, carry = 0;
 	std::string result = "";
 
 	while (i >= 0 || j >= 0 || carry != 0) {
@@ -76,20 +78,10 @@ const char* addStrings(const char* a, const char* b) {
 
 	std::reverse(result.begin(), result.end());
 
-	const char* cResult = nullptr;
-	char* buffer = nullptr;
-	size_t length = result.length();
-
-	buffer = static_cast<char*>(std::malloc((length + 1) * sizeof(char)));
-	if (buffer != nullptr) {
-		for (size_t i = 0; i < length; i++) {
-			buffer[i] = result[i];
-		}
-		buffer[length] = '\0';  
-		cResult = buffer;
-	}
-
-	return cResult;
+	char* ans = new char[result.size() + 1];
+	strcpy_s(ans,result.size()+1, result.c_str());
+	return ans;
+	free1(ans);
 }
 
 
