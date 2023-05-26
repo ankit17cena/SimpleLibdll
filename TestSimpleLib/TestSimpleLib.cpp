@@ -60,9 +60,8 @@ namespace TestSimpleLib
 			Assert::IsNotNull(actual);
 			Assert::AreEqual(expected, actual);
 		
-
-			const char* actual = addStrings("", "");
-			const char* expected = "0";
+			actual = addStrings("0", "0");
+			expected = "0";
 			Assert::IsNotNull(actual);
 			Assert::AreEqual(expected, actual);
 		}
