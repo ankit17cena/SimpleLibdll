@@ -65,6 +65,10 @@ namespace TestSimpleLib
 			a = addStrings(x, y);
 			Assert::AreEqual(exp, a);
 
+			const char* actual = addStrings("", "");
+			const char* expected = "0";
+			Assert::IsNotNull(actual);
+			Assert::AreEqual(expected, actual);
 		}
 
 		TEST_METHOD(sum_of_number) {
